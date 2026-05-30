@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #ffffff;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings use the display serif for a premium editorial feel. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), Georgia, serif;
+    @apply tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-fairway-600 text-white;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons ---------------------------------------------------------------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold
+      transition-all duration-150 focus:outline-none focus-visible:ring-2
+      focus-visible:ring-fairway-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply btn bg-fairway-600 text-white hover:bg-fairway-700 active:bg-fairway-800;
+  }
+  .btn-secondary {
+    @apply btn border border-ink/15 bg-white text-ink hover:border-ink/30 hover:bg-sand-50;
+  }
+  .btn-dark {
+    @apply btn bg-ink text-white hover:bg-ink-soft;
+  }
+  .btn-lg {
+    @apply h-12 px-7 text-base;
+  }
+  .btn-md {
+    @apply h-11 px-5;
+  }
+  .btn-sm {
+    @apply h-9 px-4 text-xs;
+  }
+
+  /* Touch-friendly tap targets on mobile. */
+  .tap {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide;
+  }
+  .badge-sale {
+    @apply badge bg-fairway-600 text-white;
+  }
+  .badge-new {
+    @apply badge bg-ink text-white;
+  }
+  .badge-best {
+    @apply badge bg-brass text-white;
+  }
+
+  .input {
+    @apply h-11 w-full rounded-lg border-ink/15 bg-white text-ink placeholder:text-ink-muted
+      focus:border-fairway-600 focus:ring-fairway-600;
+  }
+
+  .link-underline {
+    @apply relative font-medium text-ink hover:text-fairway-700;
+  }
+
+  .prose-policy {
+    @apply prose prose-neutral max-w-none prose-headings:font-display prose-headings:tracking-tight
+      prose-a:text-fairway-700 prose-h2:mt-10 prose-h2:text-2xl;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
